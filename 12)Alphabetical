@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class StringArraySorter {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String arr[] = {"Banana", "Apple", "Carrot", "Radish", "Jack"};
+        int len = arr.length;
+
+        System.out.print("Enter sorting order (A for Ascending, D for Descending): ");
+        char order = input.next().toUpperCase().charAt(0);
+        if (order == 'A') {
+            for (int i = 0; i < len; i++) {
+                for (int j = i + 1; j < len; j++) {
+                    if (arr[i].compareTo(arr[j]) > 0) {
+                        // Swap arr[i] and arr[j]
+                        String temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        } else if (order == 'D') {
+            for (int i = 0; i < len; i++) {
+                for (int j = i + 1; j < len; j++) {
+                    if (arr[i].compareTo(arr[j]) < 0) {
+                        // Swap arr[i] and arr[j]
+                        String temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        } else {
+            System.out.println("Invalid sorting order choice. Please enter 'A' or 'D'.");
+            return;
+        }
+        System.out.println("Sorted array:");
+        for (String element : arr) {
+            System.out.println(element);
+        }
+    }
+}
