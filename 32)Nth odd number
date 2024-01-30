@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class NthOddNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = input.nextInt();
+        int nthOdd = findNthOddNumber(n);
+        System.out.println("The " + n + "th odd number is: " + nthOdd);
+        input.close();
+    }
+    private static int findNthOddNumber(int n) {
+        return 2 * n - 1;
+    }
+}
