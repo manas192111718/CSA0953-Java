@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class SkipNumbersInRange {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the starting number (M): ");
+        int M = scanner.nextInt();
+        System.out.print("Enter the ending number (N): ");
+        int N = scanner.nextInt();
+        System.out.print("Enter the number of steps to skip (K): ");
+        int K = scanner.nextInt();
+        printNumbersWithSkip(M, N, K);
+    }
+    private static void printNumbersWithSkip(int M, int N, int K) {
+        if (M > N || K <= 0) {
+            System.out.println("Invalid input. Please ensure M <= N and K > 0.");
+            return;
+        }
+
+        System.out.println("Numbers from " + M + " to " + N + " by skipping " + K + " numbers:");
+        for (int i = M; i <= N; i += K + 1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
