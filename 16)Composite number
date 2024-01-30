@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class CompositeNumbersBetweenAB {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter two integers (a and b):");
+        int a = input.nextInt();
+        int b = input.nextInt();
+        System.out.println("Composite numbers between " + a + " and " + b +);
+        for (int i = a + 1; i <= b; i++) {
+            int divisorCount = countDivisors(i);
+            if (divisorCount > 2) {
+                System.out.print(i + " ");
+            }
+        }
+        input.close();
+    }
+    private static int countDivisors(int num) {
+        int count = 0;
+
+        for (int j = 1; j <= num; j++) {
+            if (num % j == 0) {
+                count++;
+            }
+        }
+        return count;
+   }
+}
