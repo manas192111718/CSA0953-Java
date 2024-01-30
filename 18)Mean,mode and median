@@ -1,0 +1,43 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class StatsCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int a[] = {16, 18, 27, 16, 23, 21, 19};
+        int len = a.length;
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            sum = sum + a[i];
+        }
+        int mean = sum / len;
+        System.out.println("Mean: " + mean);
+        Arrays.sort(a);
+        if (len % 2 == 0) {
+            int mid1 = len / 2;
+            int mid2 = mid1 - 1;
+            int median = (a[mid1] + a[mid2]) / 2;
+            System.out.println("Median: " + median);
+        } else {
+            int mid = (len - 1) / 2;
+            System.out.println("Median: " + a[mid]);
+        }
+        findAndPrintMode(a);
+        input.close();
+    }
+    private static void findAndPrintMode(int[] arr) {
+        int mode = 0, maxCount = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                mode = arr[i];
+            }
+        }
+        System.out.println("Mode: " + mode);
+    }
+}
