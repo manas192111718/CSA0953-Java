@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class PerfectNumberFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = input.nextInt();
+
+        int sum = 0, temp = 0;
+
+        for (int j = 2; temp < n; j++) {
+            sum = 1; // Initializing sum with 1 for every iteration
+            for (int i = 2; i < j; i++) {
+                if (j % i == 0) {
+                    sum = sum + i;
+                }
+            }
+            if (sum == j) {
+                System.out.print(j + " ");
+                temp = temp + 1;
+            }
+        }
+
+        // Close the scanner to avoid resource leak
+        input.close();
+    }
+}
